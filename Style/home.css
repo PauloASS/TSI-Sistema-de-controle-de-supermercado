@@ -1,0 +1,59 @@
+img {
+    width: 10%;
+    margin: 10px;
+}
+
+li {
+    display: inline-block;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 15px;
+}
+.box{
+    position: relative;
+    padding: 20px 0;
+    display: inline-flex;
+}
+.box input{
+    height: 50px;
+    width: 900px;
+    border-radius: 10px;
+    margin: 0px 100px;
+}
+header{
+    background-color: gray;
+}
+.box button{
+    margin-left: 200px;
+}
+
+main button{
+    width: 150px;
+}
+
+.divCategor{
+    position: relative;
+    width: 80%;
+    height: 100px;
+    margin: 50px auto;
+    background-color: gray;
+}
+
+.boxCategoria li{
+    display: inline-block;
+    width: 300px;
+
+}
+
+.divCategor h2{
+    font-weight: bolder;
+    text-align: center;
+}
+
+footer {
+    margin-top: 400px;
+    height: 90px;
+    text-align: center;
+    background-color: gray;
+    padding: 40px;
+}
