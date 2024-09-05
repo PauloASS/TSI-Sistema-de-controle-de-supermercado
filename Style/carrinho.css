@@ -1,0 +1,12 @@
+/* header*/
+header{
+    background-color: gray;
+}
+/* footer*/
+footer {
+    margin-top: 400px;
+    height: 90px;
+    text-align: center;
+    background-color: gray;
+    padding: 40px;
+}
