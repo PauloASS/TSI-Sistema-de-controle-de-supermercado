@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <link rel="stylesheet" href="/Style/reset.css">
 <link rel="stylesheet" href="/Style/home.css">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,96 +13,31 @@
     <header>
         <!--Penso nessa parte como ficando no centro, tanto o h1 quanto esse input,  aumentar ele  e acho que ficaria interessante se ele ficasse ainda com a aparência de caixa  (Samuel)-->
         <div class="box">
-        <a href="home.html">
-            <img src="" alt="">
-            <h1>Capixabão</h1>
-        </a>
-        <p><input type="text" id="inProduto" placeholder="O que você procura?"></p>
-        <a href="/Carrinho/carrinho.html" ><button><img src="imagens/imagem carrinho de compra.jpg"> </button></a>
+            <a href="home.html">
+                <img src="" alt="">
+                <h1>Capixabão</h1>
+            </a>
+            <p><input type="text" id="inProduto" placeholder="O que você procura?"></p>
+            <a href="/Carrinho/carrinho.html"><button><img src="imagens/imagem carrinho de compra.jpg"> </button></a>
         </div>
     </header>
     <!--No main mesma coisa usem id não as classes caso for nessecesário seguir padrão mandado no grupo :) (Paulo)-->
-    <main>  
+    <main>
         <div class="divCategor">
             <h2>Filtros</h2>
-        
-            <p>Categorias<select name="" id="slCategorias">
-                <option value="" disabled selected>Selecione uma Categoria</option>
-                <option value="opMerc">Mercearia</option>
-                <option value="opHort">Hortifrutigranjeiros</option>
-                <option value="opProdHigLimp">Produtos de Higiene e Limpeza</option>
-                <option value="opCarne">Carnes (Aves, Bovino e Suíno)</option>
-            </select> Marca <select name="" id="slMarca">
-                <option value="" disabled selected>Selecione uma Marca</option>
-                <option value="opMenorP">Menor Preço</option>
-                <option value="opToddy">Toddy</option>
-                <option value="opNescau">Nescau</option>
-                <option value="opAltoAl">Alto Alegre</option>
-                <option value="opZaeli">Zaeli</option>
-                <option value="opTioJ">Tio João</option>
-                <option value="opCocamar">Cocamar</option>
-                <option value="opJandaia">Jandaia</option>
-                <option value="opItamarity">Itamarity</option>
-                <option value="opQuero">Quero</option>
-                <option value="opElefante">Elefante</option>
-                <option value="opPomarola">Pomarola</option>
-                <option value="opPinduca">Pinduca</option>
-                <option value="opSol">Sol</option>
-                <option value="opAnaconda">Anaconda</option>
-                <option value="opMartinelli">Martinelli</option>
-                <option value="opDouro">De Ouro</option>
-                <option value="opLider">Líder</option>
-                <option value="opGalo">Galo</option>
-                <option value="opRenata">Renata</option>
-                <option value="opQualy">Qualy</option>
-                <option value="opDoriana">Doriana</option>
-                <option value="opDelicia">Delícia</option>
-                <option value="opLiza">Liza</option>
-                <option value="opPullman">Pullman</option>
-                <option value="opCisne">Cisne</option>
-                <option value="opCoqueiro">Coqueiro</option>
-                <option value="opGomesdCosta">Gomes da Costa</option>
-                <option value="opAmi">Ami</option>
-                <option value="opCastelo">Castelo</option>
-                <option value="opIntimus">Intimus</option>
-                <option value="opSempre">Sempre Livre</option>
-                <option value="opQboa">Qboa</option>
-                <option value="opConfort">Confort</option>
-                <option value="opCLose">Close-up</option>
-                <option value="opSorriso">Sorriso</option>
-                <option value="opColgate">Colgate</option>
-                <option value="opPinho">Pinho-Sol</option>
-                <option value="opYpe">Ypê</option>
-                <option value="opLimpol">Limpol</option>
-                <option value="opBombril">Bombril</option>
-                <option value="opAssolan">Assolan</option>
-                <option value="opOmo">Omo</option>
-                <option value="opBrilhante">Brilhante</option>
-                <option value="opFrancis">Francis</option>
-                <option value="opLux">Lux</option>
-                <option value="opDove">Dove</option>
-                <option value="opPalmolive">Palmolive</option>
-                <option value="opCrespa">Crespa</option>
-                <option value="opImpor">Importado</option>
-                <option value="opCatNan">Caturra/Nanica</option>
-                <option value="opMona">Monalisa</option>
-                <option value="opNacio">Nacional</option>
-                <option value="opTaiti">Taiti</option>
-                <option value="opJapo">Japonês</option>
-                <option value="opBovino">Bovino</option>
-                <option value="opSuina">Suina</option>
-                <option value="opFrango">Frango</option>
-                <option value="opFrimesa">Frimesa</option>
-                <option value="opNula">Nula</option>
-            </select>
-        Preço <input type="number" id="inPreco1"> <input type="number" id="inPreco2">
-        <button id="btFiltrar">Filtrar</button>
+
+            <p>Categorias<input type="text" id="inCategoria" placeholder="O que você procura?">
+
+                Marca <input type="text" id="inMarca" placeholder="O que você procura?">
+
+                Preço <input type="number" id="inPreco1"> <input type="number" id="inPreco2">
+                <button id="btFiltrar">Filtrar</button>
             <nav><!--Penso nessa parte como ficando no centro tb tipo o que ta no carone (Samuel) -->
 
-        <!--Essa parte da div colocaria o inner.html dos produtos coloquei um class para o estilo façam um id para poder sair os produtos (Paulo)-->
-        <div class="" id="outProdutos">
+                <!--Essa parte da div colocaria o inner.html dos produtos coloquei um class para o estilo façam um id para poder sair os produtos (Paulo)-->
+                <div class="" id="outProdutos">
 
-        </div>
+                </div>
 
     </main>
     <footer>
@@ -109,4 +45,5 @@
     </footer>
 </body>
 <script src="home.js"></script>
+
 </html>
