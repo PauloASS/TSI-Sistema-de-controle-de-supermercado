@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <link rel="stylesheet" href="/Style/reset.css">
 <link rel="stylesheet" href="/Style/home.css">
+<link rel="stylesheet" href="/Style/FooterHeader.css">
 
 <head>
     <meta charset="UTF-8">
@@ -11,34 +12,43 @@
 
 <body>
     <header>
-        <!--Penso nessa parte como ficando no centro, tanto o h1 quanto esse input,  aumentar ele  e acho que ficaria interessante se ele ficasse ainda com a aparência de caixa  (Samuel)-->
-        <div class="box">
+        <div class="boxHeaderCss">
+
             <a href="home.html">
-                <img src="" alt="">
-                <h1>Capixabão</h1>
+                <img src="/home/imagens/logo.png" alt="logo" class="logo">Supermercado Capixabão
             </a>
-            <p><input type="text" id="inProduto" placeholder="O que você procura?"></p>
-            <a href="/Carrinho/carrinho.html"><button><img src="imagens/imagem carrinho de compra.jpg"> </button></a>
+
+            <input type="text" id="inProduto" placeholder="O que você procura?">
+
+            <button class="cartCss" id="btCarrinhoJs"><img src="/home/imagens/carrinhoIcon.png"></button>
+
         </div>
     </header>
-    <!--No main mesma coisa usem id não as classes caso for nessecesário seguir padrão mandado no grupo :) (Paulo)-->
+    <!--
+    <section class="sctCarrinhoCss">
+
+    </section>
+    -->
     <main>
-        <div class="divCategor">
-            <h2>Filtros</h2>
+        <section class="sctBannerCss">
+                <img src="/home/imagens/banner.png" class="bannerCss">
+        </section>
+        <section class="sctProdutosCss">
+            <div class="boxFiltros" class="teste">
+                <h2>Filtros</h2>
 
-            <p>Categorias<input type="text" id="inCategoria" placeholder="O que você procura?">
-
-                Marca <input type="text" id="inMarca" placeholder="O que você procura?">
-
-                Preço <input type="number" id="inPreco1"> <input type="number" id="inPreco2">
+                <h3>Categorias</h3>
+                <input type="text" id="inCategoria" placeholder="Qual a Categoria deseja ?">
+                <h3>Marca</h3>
+                <input type="text" id="inMarca" placeholder="Qual marca você procura?">
+                <h3>Preço</h3>
+                <p> Min<input type="number" class="minMax" id="inPreco1">Max<input class="minMax" type="number"
+                        id="inPreco2">
+                </p>
                 <button id="btFiltrar">Filtrar</button>
-            <nav><!--Penso nessa parte como ficando no centro tb tipo o que ta no carone (Samuel) -->
-
-                <!--Essa parte da div colocaria o inner.html dos produtos coloquei um class para o estilo façam um id para poder sair os produtos (Paulo)-->
-                <div class="" id="outProdutos">
-
-                </div>
-
+            </div>
+            <div class="boxProdutosCss" id="outProdutos" class="teste"></div>
+        </section>
     </main>
     <footer>
         <p class="copyright">&copy;Copyright Capixabão</p>
