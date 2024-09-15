@@ -1,59 +1,99 @@
-img {
-    width: 10%;
-    margin: 10px;
+/*estilização global*/
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 100px;
 }
 
-li {
-    display: inline-block;
-    margin-left: 0px;
+/*Section Banner*/
+
+.sctBannerCss {
+    padding: 20px;
+}
+
+.sctBannerCss img {
+    width: 60%;
+    margin: 0px 20%;
+    border-radius: 5px;
+}
+
+/*div do banner*/
+
+/*Section produtos*/
+
+.sctProdutosCss{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+/*div do filtro*/
+
+.boxFiltros {
+    background-color: white;
+    width: 23%;
+    height: 200px;
+    padding: 10px;
+    border: solid #808080 0.5px;
+    border-radius: 5px;
+    padding-right: 2px;
+    box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.3);
+    margin-top: 0px;
+}
+
+.boxFiltros h2 {
     text-align: center;
-    font-size: 15px;
 }
-.box{
-    position: relative;
-    padding: 20px 0;
-    display: inline-flex;
+
+.boxFiltros h3{
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
-.box input{
-    height: 50px;
-    width: 900px;
+
+/*inputs e buttos da div filtros*/
+
+.boxFiltros input {
+    border:solid gray 0.2px ;
+    border-radius: 2px;
+}
+
+.boxFiltros input[type = "number"]{
+    width: 80px;
+    margin-left: 3px;
+    margin-right: 5px;
+}
+
+.boxFiltros button {
+    text-align: center;
+    width: 100px;
+    height: 20px;
+    margin: 0px 30%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 2px;
+    background-color: orange;
+    color: white;
+}
+
+/*div Produtos*/
+
+.boxProdutosCss {
+    display: flex;
+    justify-content: space-between;
+    border: solid 0.2px gray;
+    border-radius: 2px ;
+    width: 75%;
+    margin-right: 0px;
+}
+
+/*section carrinho*/
+
+.sctCarrinhoCss{
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    background-color: white;
+    border: #808080 0.5px solid;
     border-radius: 10px;
-    margin: 0px 100px;
-}
-header{
-    background-color: gray;
-}
-.box button{
-    margin-left: 200px;
-}
-
-main button{
-    width: 150px;
-}
-
-.divCategor{
-    position: relative;
-    width: 80%;
-    height: 100px;
-    margin: 50px auto;
-    background-color: gray;
-}
-
-.boxCategoria li{
-    display: inline-block;
-    width: 300px;
-
-}
-
-.divCategor h2{
-    font-weight: bolder;
-    text-align: center;
-}
-/* footer*/
-footer {
-    margin-top: 400px;
-    height: 90px;
-    text-align: center;
-    background-color: gray;
-    padding: 40px;
 }
