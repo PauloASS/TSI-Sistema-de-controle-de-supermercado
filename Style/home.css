@@ -55,6 +55,7 @@ main {
 .boxFiltros input {
     border:solid gray 0.2px ;
     border-radius: 2px;
+    width: 250px;
 }
 
 .boxFiltros input[type = "number"]{
