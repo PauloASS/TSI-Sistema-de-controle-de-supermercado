@@ -1,0 +1,27 @@
+/*section carrinho*/
+
+.sctCarrinhoCss {
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    background-color: white;
+    border: 0.5px solid #808080;
+    border-radius: 10px;
+    display: none; /* garantir que a seção comece oculta */
+    overflow-y: auto; /* para rolar caso haja muitos itens */
+}
+
+.sctCarrinhoCss button{
+    background-color: orange;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.sctCarrinhoCss button:hover {
+    background-color: orangered;
+}

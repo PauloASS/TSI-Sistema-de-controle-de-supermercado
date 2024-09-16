@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<link rel="stylesheet" href="/Style/reset.css">
-<link rel="stylesheet" href="/Style/home.css">
-<link rel="stylesheet" href="/Style/FooterHeader.css">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capixabão</title>
+    <link rel="stylesheet" href="/Style/reset.css">
+    <link rel="stylesheet" href="/Style/home.css">
+    <link rel="stylesheet" href="/Style/FooterHeader.css">
+    <link rel="stylesheet" href="/Style/carrinho.css">
 </head>
-
 <body>
     <header>
         <div class="boxHeaderCss">
-
             <a href="home.html">
                 <img src="/home/imagens/logo.png" alt="logo" class="logo">Supermercado Capixabão
             </a>
-
             <input type="text" id="inProduto" placeholder="O que você procura?">
-
             <button class="cartCss" id="btCarrinhoJs"><img src="/home/imagens/carrinhoIcon.png"></button>
-
         </div>
     </header>
-    <!--
     <section class="sctCarrinhoCss">
-
+        <button id="btFecharCarrinho">Fechar</button>
+        <div id="outCarrinho"></div>
     </section>
-    -->
     <main>
         <section class="sctBannerCss">
-                <img src="/home/imagens/banner.png" class="bannerCss">
+            <img src="/home/imagens/banner.png" class="bannerCss">
         </section>
         <section class="sctProdutosCss">
             <div class="boxFiltros">
                 <h2>Filtros</h2>
-
                 <h3>Categorias</h3>
                 <input type="text" id="inCategoria" placeholder="Qual a Categoria deseja ?">
                 <h3>Marca</h3>
                 <input type="text" id="inMarca" placeholder="Qual marca você procura?">
                 <h3>Preço</h3>
-                <p> Min<input type="number" class="minMax" id="inPreco1">Max<input class="minMax" type="number"
-                        id="inPreco2">
-                </p>
+                <p> Min<input type="number" class="minMax" id="inPreco1">Max<input class="minMax" type="number" id="inPreco2"></p>
                 <button id="btFiltrar">Filtrar</button>
             </div>
             <div class="boxProdutosCss" id="outProdutos"></div>
@@ -53,7 +44,6 @@
     <footer>
         <p class="copyright">&copy;Copyright Capixabão</p>
     </footer>
+    <script src="/home/home.js"></script>
 </body>
-<script src="home.js"></script>
-
 </html>
