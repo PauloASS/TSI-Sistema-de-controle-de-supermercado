@@ -35,7 +35,7 @@ for (let cont = 0; cont < vetProduto.length; cont++) {
                 <img src="/home/imagens/imgDefault.png">
                 <h3>${vetProduto[cont]}</h3><br>
                 <h3>Marca : ${vetEspecifica[cont]}</h3><br>
-                <h3>${vetValor[cont]}</h3><br>
+                <h3>${vetValor[cont]}</h3>
                 <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
             </div>`;
     }

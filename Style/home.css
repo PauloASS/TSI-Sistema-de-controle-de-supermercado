@@ -22,24 +22,27 @@ main {
 /*Section produtos*/
 
 .sctProdutosCss{
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    justify-content: space-between;
 }
 
 /*div do filtro*/
 
 .boxFiltros {
     background-color: white;
-    width: 23%;
-    height: 200px;
+    width: 80%;
     padding: 10px;
     border: solid #808080 0.5px;
     border-radius: 5px;
     padding-right: 2px;
     box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.3);
-    margin-top: 0px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bxlineFiltroCss{
+    display: inline;
 }
 
 .boxFiltros h2 {
@@ -67,14 +70,14 @@ main {
 
 .boxFiltros button {
     text-align: center;
-    width: 100px;
+    width: 10%;
     height: 20px;
-    margin: 0px 30%;
     margin-top: 10px;
     border: none;
     border-radius: 2px;
     background-color: orange;
     color: white;
+    
 }
 
 .boxFiltros button:hover{
@@ -91,23 +94,24 @@ main {
 /*div Produtos*/
 
 .boxProdutosCss {
-    display: flex;
     flex-wrap: wrap;
     align-items:flex-start;
     padding: 10px;
     border: solid 0.2px gray;
     border-radius: 2px ;
-    width: 75%;
-    margin-right: 0px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boxProduto {
+    display: inline-block;
     padding: 10px;
-    width: 150px;
+    width: 16.5%;
     border: 1px solid black;
     margin-bottom: 10px;
     margin-left: 10px;
-    height: 260px;
+    height: 290px;
 }
 
 .boxProduto h3{
@@ -121,16 +125,17 @@ main {
 }
 
 .boxProduto button {
+    display: inline-block;
     background-color: coral;
     border: none;
     text-align: center;
     border-radius: 5px;
     color: white;
-    margin: 0px auto;
     padding: 4px;
     width: 90px;
-    margin-left: 40%;
+    margin-bottom: auto;
     transition: 0.6s;
+    right: 0px;
 }
 
 .boxProduto button:hover{

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,13 @@
     <link rel="stylesheet" href="/Style/FooterHeader.css">
     <link rel="stylesheet" href="/Style/carrinho.css">
 </head>
+
 <body>
     <header>
         <div class="boxHeaderCss">
             <a href="home.html">
-                <img src="/home/imagens/logo.png" alt="logo" class="logo">Supermercado Capixabão
+                <img src="/home/imagens/logo.png" alt="logo" class="logo">
+                <h1>Supermercado Capixabão</h1>
             </a>
             <input type="text" id="inProduto" placeholder="O que você procura?">
             <button class="cartCss" id="btCarrinhoJs"><img src="/home/imagens/carrinhoIcon.png"></button>
@@ -27,17 +30,19 @@
         <section class="sctBannerCss">
             <img src="/home/imagens/banner.png" class="bannerCss">
         </section>
-        <section class="sctProdutosCss">
+        <section class="sctFiltroCss">
             <div class="boxFiltros">
                 <h2>Filtros</h2>
-                <h3>Categorias</h3>
-                <input type="text" id="inCategoria" placeholder="Qual a Categoria deseja ?">
-                <h3>Marca</h3>
-                <input type="text" id="inMarca" placeholder="Qual marca você procura?">
-                <h3>Preço</h3>
-                <p> Min<input type="number" class="minMax" id="inPreco1">Max<input class="minMax" type="number" id="inPreco2"></p>
+                <div class="bxlineFiltroCss">
+                    Categorias <input type="text" id="inCategoria" placeholder="Qual a Categoria deseja ?">
+                    Marca <input type="text" id="inMarca" placeholder="Qual marca você procura?">
+                    Preço Min:<input type="number" class="minMax" id="inPreco1">Max:<input class="minMax" type="number"
+                            id="inPreco2">
+                </div>
                 <button id="btFiltrar">Filtrar</button>
             </div>
+        </section>
+        <section class="sctProdutosCss">
             <div class="boxProdutosCss" id="outProdutos"></div>
         </section>
     </main>
@@ -46,4 +51,5 @@
     </footer>
     <script src="/home/home.js"></script>
 </body>
+
 </html>
