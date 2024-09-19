@@ -1,6 +1,6 @@
 const inProduto = document.getElementById("inProduto");
-const inCategoria = document.getElementById("inCategoria");
-const inMarca = document.getElementById("inMarca");
+const slCategorias = document.getElementById("slCategorias");
+const slMarca = document.getElementById("slMarca");
 const inPreco1 = document.getElementById("inPreco1");
 const inPreco2 = document.getElementById("inPreco2");
 const btFiltrar = document.getElementById("btFiltrar");
@@ -32,73 +32,69 @@ for (let cont = 0; cont < vetProduto.length; cont++) {
             </div>`;
     } else {
         outProdutos.innerHTML += `<div class="boxProduto">
-                <img src="/home/imagens/imgDefault.png">
-                <h3>${vetProduto[cont]}</h3><br>
-                <h3>Marca : ${vetEspecifica[cont]}</h3><br>
-                <h3>${vetValor[cont]}</h3>
-                <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
+                    <img src="/home/imagens/imgDefault.png">
+                    <h3>${vetProduto[cont]}</h3><br>
+                    <h3>Marca : ${vetEspecifica[cont]}</h3><br>
+                    <h3>${vetValor[cont]}</h3>
+                    <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
             </div>`;
     }
 }
 
-function addcart (pt){
-    let indAchado = -1; 
-    
-            for(let ind=0; ind<vetProduto.length; ind++){
-                if(vetProduto[ind] == vetProduto[pt]){
-                    indAchado = ind;
-                }
-            }
+function addcart(pt) {
+    let indAchado = -1;
 
-            if (indAchado == -1){
-                vetCartProduto.push(pt);
-                vetCartQuant.push(1);
+    for (let ind = 0; ind < vetProduto.length; ind++) {
+        if (vetProduto[ind] == vetProduto[pt]) {
+            indAchado = ind;
+        }
+    }
+
+    if (indAchado == -1) {
+        vetCartProduto.push(pt);
+        vetCartQuant.push(1);
+    } else {
+        for (let ind = 0; ind < vetCartProduto.length; ind++) {
+            if (vetCartProduto[ind] == vetCartProduto[pt]) {
+                indAchado = ind;
+            }
+        }
+        vetCartQuant[indAchado] = vetCartQuant[indAchado] + 1;
+    }
+}
+
+btFiltrar.addEventListener("click", filtrar);
+function filtrar() {
+    var categoria = slCategorias.value;
+    var marca = slMarca.value;
+    var precMin = Number(inPreco1.value);
+    var precMax = Number(inPreco2.value);
+
+    if (inProduto.value == "" && slCategorias.value == "" && slMarca.value == "" && inPreco1.value == "" && inPreco2.value == "") {
+        for (let cont = 0; cont < vetProduto.length; cont++) {
+            if (vetEspecifica[cont] == '-') {
+                outProdutos.innerHTML += `<div class="boxProduto">
+                    <img src="/home/imagens/imgDefault.png">
+                    <h3>${vetProduto[cont]}</h3><br>
+                    <h3>${vetValor[cont]}</h3><br>
+                    <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
+                </div>`;
             } else {
-                for(let ind=0; ind<vetCartProduto.length; ind++){
-                    if(vetCartProduto[ind] == vetCartProduto[pt]){
-                        indAchado = ind;
-                    }
-                }
-                vetCartQuant [indAchado] = vetCartQuant [indAchado] + 1;
+                outProdutos.innerHTML += `<div class="boxProduto">
+                        <img src="/home/imagens/imgDefault.png">
+                        <h3>${vetProduto[cont]}</h3><br>
+                        <h3>Marca : ${vetEspecifica[cont]}</h3><br>
+                        <h3>${vetValor[cont]}</h3>
+                        <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
+                </div>`;
             }
-}
+        }
+    } else {
+        for (let i = 0; i < vetCategoria.length; i++) {
+            slCategorias.value == 'TODOS' || slCategorias.value == vetCategoria[i];
 
-btCarrinhoJs.addEventListener("click", mostrarCarrinho);
+        }
 
-function mostrarCarrinho() {
-    const outCarrinho = document.querySelector('.sctCarrinhoCss');
-
-    outCarrinho.style.display = 'block'; // Garanta que a seção esteja visível
-
-    for (let cont = 0; cont < vetCartProduto.length; cont++) {
-
-        outCarrinho.innerHTML += `
-            <div class="boxProduto">
-                <img src="/home/imagens/imgDefault.png">
-                <h3>${vetProduto[vetCartProduto[cont]]}</h3><br>
-                <h3>Quantidade: ${vetCartQuant[cont]}</h3><br>
-                <h3>${vetValor[vetCartProduto[cont]]}</h3><br>
-                <button onclick="adicionarMais(${cont})">Adicionar Mais</button>
-                <button onclick="removerDoCarrinho(${cont})">Remover</button>
-            </div>`;
+        /*quando o value da posição do vetor for igual ao que esta no select ele para e mostra o resultado*/
     }
-}
-
-function adicionarMais(index) {
-    vetCartQuant[index] += 1;
-    mostrarCarrinho();
-}
-
-function removerDoCarrinho(index) {
-    vetCartProduto.splice(index, 1);
-    vetCartQuant.splice(index, 1);
-    mostrarCarrinho();
-}
-
-btFecharCarrinho.addEventListener("click", fecharCarrinho);
-
-function fecharCarrinho (){
-    const outCarrinho = document.querySelector('.sctCarrinhoCss');
-
-    outCarrinho.style.display = 'none';
 }
