@@ -84,17 +84,47 @@ function filtrar() {
                         <img src="/home/imagens/imgDefault.png">
                         <h3>${vetProduto[cont]}</h3><br>
                         <h3>Marca : ${vetEspecifica[cont]}</h3><br>
-                        <h3>${vetValor[cont]}</h3>
-                        <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
-                </div>`;
+                        <h3>${vetValor[cont]}</h3>`;
+                
+                const btClique = document.createElement('button');
+                btClique.textContent = 'Adcionar carrinho';
+                btClique.id = 'item' + cont;
+                btClique.addEventListener('click', carrinho);
+
+                //console.log ('clicou' + e.targed.id)
+            
+                outProdutos.innerHTML += `</div>`;
             }
         }
     } else {
         for (let i = 0; i < vetCategoria.length; i++) {
-            slCategorias.value == 'TODOS' || slCategorias.value == vetCategoria[i];
+            if(slCategorias.value == 'opTodos' || slCategorias.value == vetCategoria[i]){
+                outProdutos.innerHTML
+
+            } else if (slCategorias.value == 'opMerc' || slCategorias.value == vetCategoria[i]){
+                outProdutos.innerHTML
+
+            } else if(slCategorias.value == 'opHort' || slCategorias.value == vetCategoria[i]){
+                outProdutos.innerHTML
+
+            } else if(slCategorias.value == 'opProdHigLimp' || slCategorias.value == vetCategoria[i]){
+                outProdutos.innerHTML
+
+            } else if(slCategorias.value == 'opCarne' || slCategorias.value == vetCategoria[i]){
+                outProdutos.innerHTML
+            }
 
         }
-
         /*quando o value da posição do vetor for igual ao que esta no select ele para e mostra o resultado*/
     }
 }
+var vetFiltro = [];
+    var cat = slCategorias.value;
+    var valorMin = inPreco1.value;
+    var valorMAx = inPreco2.value;
+
+    for (let i = 0 ; i < vetProduto.length ;i ++ ){
+        if( (cat == vetCategoria[i] || slCategorias.value == '') && (valorMin <= vetValor[i] || inPreco1.value == '') && (valorMAx >= vetValor[i] || inPreco2.value == '')){
+            vetFiltro.push(i);
+        }
+    }
