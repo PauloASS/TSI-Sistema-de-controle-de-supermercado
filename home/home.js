@@ -41,90 +41,78 @@ for (let cont = 0; cont < vetProduto.length; cont++) {
     }
 }
 
-function addcart(pt) {
-    let indAchado = -1;
-
-    for (let ind = 0; ind < vetProduto.length; ind++) {
-        if (vetProduto[ind] == vetProduto[pt]) {
-            indAchado = ind;
-        }
-    }
-
-    if (indAchado == -1) {
-        vetCartProduto.push(pt);
-        vetCartQuant.push(1);
-    } else {
-        for (let ind = 0; ind < vetCartProduto.length; ind++) {
-            if (vetCartProduto[ind] == vetCartProduto[pt]) {
-                indAchado = ind;
-            }
-        }
-        vetCartQuant[indAchado] = vetCartQuant[indAchado] + 1;
-    }
-}
+//Filtro funcionando
 
 btFiltrar.addEventListener("click", filtrar);
+
 function filtrar() {
-    var categoria = slCategorias.value;
-    var marca = slMarca.value;
-    var precMin = Number(inPreco1.value);
-    var precMax = Number(inPreco2.value);
 
-    if (inProduto.value == "" && slCategorias.value == "" && slMarca.value == "" && inPreco1.value == "" && inPreco2.value == "") {
-        for (let cont = 0; cont < vetProduto.length; cont++) {
-            if (vetEspecifica[cont] == '-') {
-                outProdutos.innerHTML += `<div class="boxProduto">
-                    <img src="/home/imagens/imgDefault.png">
-                    <h3>${vetProduto[cont]}</h3><br>
-                    <h3>${vetValor[cont]}</h3><br>
-                    <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
-                </div>`;
-            } else {
-                outProdutos.innerHTML += `<div class="boxProduto">
-                        <img src="/home/imagens/imgDefault.png">
-                        <h3>${vetProduto[cont]}</h3><br>
-                        <h3>Marca : ${vetEspecifica[cont]}</h3><br>
-                        <h3>${vetValor[cont]}</h3>`;
-                
-                const btClique = document.createElement('button');
-                btClique.textContent = 'Adcionar carrinho';
-                btClique.id = 'item' + cont;
-                btClique.addEventListener('click', carrinho);
+    var valorMin = inPreco1.value;
+    var valorMax = inPreco2.value;
 
-                //console.log ('clicou' + e.targed.id)
-            
-                outProdutos.innerHTML += `</div>`;
-            }
-        }
+    if ( valorMin < 0 ) {
+        alert("O campo de valor minímo está incorreto, por favor preencha corretamente");
+        inPreco1.focus();
+        inPreco1.value = '';
+    } else if ( valorMax < 0 ) {
+        alert("O campo de valor maxímo está incorreto, por favor preencha corretamente");
+        inPreco2.focus();
+        inPreco2.value = '';
+    } else if ( valorMin > valorMax ){
+        alert("O campo de valor maxímo não pode ser menor que o valor mínimo");
+        inPreco2.focus();
+        inPreco2.value = '';
     } else {
-        for (let i = 0; i < vetCategoria.length; i++) {
-            if(slCategorias.value == 'opTodos' || slCategorias.value == vetCategoria[i]){
-                outProdutos.innerHTML
+        outProdutos.innerHTML = "Nenhum produto foi encontrado";
 
-            } else if (slCategorias.value == 'opMerc' || slCategorias.value == vetCategoria[i]){
-                outProdutos.innerHTML
+        var vetFiltro = [];
 
-            } else if(slCategorias.value == 'opHort' || slCategorias.value == vetCategoria[i]){
-                outProdutos.innerHTML
+        var nome = inProduto.value;
+        var cat = slCategorias.value;
+        var marca = slMarca.value;
 
-            } else if(slCategorias.value == 'opProdHigLimp' || slCategorias.value == vetCategoria[i]){
-                outProdutos.innerHTML
-
-            } else if(slCategorias.value == 'opCarne' || slCategorias.value == vetCategoria[i]){
-                outProdutos.innerHTML
+        for (let i = 0; i < vetProduto.length; i++) {
+            if (
+                (slCategorias.value == '' || cat == vetCategoria[i]) &&
+                (inPreco1.value == '' || valorMin <= vetValor[i]) &&
+                (inPreco2.value == '' || valorMax >= vetValor[i]) &&
+                (inProduto.value == '' || nome == vetProduto[i]) &&
+                (slMarca.value == '' || marca == vetEspecifica[i])
+            ) {
+                vetFiltro.push(i);
             }
-
         }
-        /*quando o value da posição do vetor for igual ao que esta no select ele para e mostra o resultado*/
+
+        if (vetFiltro.length > 0) {
+            outProdutos.innerHTML = "";
+
+            for (let i = 0; i < vetFiltro.length; i++) {
+                const index = vetFiltro[i];
+                if (vetEspecifica[index] === '-') {
+                    outProdutos.innerHTML += `
+                <div class="boxProduto">
+                    <img src="/home/imagens/imgDefault.png">
+                    <h3>${vetProduto[index]}</h3><br>
+                    <h3>${vetValor[index]}</h3><br>
+                    <button onclick="addcart(${index})">Adicionar ao carrinho</button>
+                </div>`;
+                } else {
+                    outProdutos.innerHTML += `
+                <div class="boxProduto">
+                    <img src="/home/imagens/imgDefault.png">
+                    <h3>${vetProduto[index]}</h3><br>
+                    <h3>Marca : ${vetEspecifica[index]}</h3><br>
+                    <h3>${vetValor[index]}</h3>
+                    <button onclick="addcart(${index})">Adicionar ao carrinho</button>
+                </div>`;
+                }
+            }
+        }
+
+        inProduto.value = '';
+        inPreco1.value = '';
+        inPreco2.value = '';
+        slCategorias.value = '';
+        slMarca.value = '';
     }
 }
-var vetFiltro = [];
-    var cat = slCategorias.value;
-    var valorMin = inPreco1.value;
-    var valorMAx = inPreco2.value;
-
-    for (let i = 0 ; i < vetProduto.length ;i ++ ){
-        if( (cat == vetCategoria[i] || slCategorias.value == '') && (valorMin <= vetValor[i] || inPreco1.value == '') && (valorMAx >= vetValor[i] || inPreco2.value == '')){
-            vetFiltro.push(i);
-        }
-    }
