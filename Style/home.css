@@ -15,6 +15,7 @@ main {
     width: 60%;
     margin: 0px 20%;
     border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0, 20%);
 }
 
 /*div do banner*/
@@ -99,6 +100,7 @@ main {
     align-items:flex-start;
     padding: 10px;
     border: solid 0.2px gray;
+    background-color: #eaeaea;
     border-radius: 2px ;
     width: 70%;
     margin-left: auto;
@@ -108,11 +110,14 @@ main {
 .boxProduto {
     display: inline-block;
     padding: 10px;
-    width: 16.5%;
-    border: 1px solid black;
+    width: 16.2%;
+    background-color: rgb(251, 255, 255, 50%);
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
     height: 290px;
+    transition: 0.5s;
 }
 
 .boxProduto h3{
@@ -134,7 +139,8 @@ main {
     color: white;
     padding: 4px;
     width: 60%;
-    margin-bottom: auto;
+    margin-top: 14%;
+    margin-left: 40%;
     transition: 0.6s;
     right: 0px;
 }
@@ -148,4 +154,14 @@ main {
 .boxProduto button:active{
     background-color: darkred;
     transition: 0s;
+}
+
+.boxProduto .descri{
+    height: 40%;
+    font-size: 100%;
+}
+
+.boxProduto:hover {
+    scale: 101%;
+    transition: 0.5s;
 }
