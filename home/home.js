@@ -219,7 +219,7 @@ function exibirProdutos(vetFiltro) {
 
 	for (let i = 0; i < vetFiltro.length; i++) {
     	const index = vetFiltro[i];
-    	if (vetEspecifica[index] === '-') {
+    	if (vetEspecifica[index] == '-') {
         	outProdutos.innerHTML += `
         	<div class="boxProduto">
             	<img src="/home/imagens/imgDefault.png">
