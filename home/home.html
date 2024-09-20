@@ -36,81 +36,75 @@
                 <div class="bxlineFiltroCss">
                     <p>Categorias <select name="" id="slCategorias">
 
-                        <option value="opTodos" selected>Todos</option>
-                        <option value="opMerc">Mercearia</option>
-                        <option value="opHort">Hortifrutigranjeiros</option>
-                        <option value="opProdHigLimp">Produtos de Higiene e Limpeza</option>
-                        <option value="opCarne">Carnes (Aves, Bovino e Suíno)</option>
+                            <option value="" selected disabled>Selecione Categoria</option>
+                            <option value="Mercearia">Mercearia</option>
+                            <option value="Hortifrutigranjeiros">Hortifrutigranjeiros</option>
+                            <option value="Produtos de Higiene e Limpeza">Produtos de Higiene e Limpeza</option>
+                            <option value="Carnes ( Aves, Bovino e Suíno)">Carnes (Aves, Bovino e Suíno)</option>
+                        </select>
 
-                    </select>
-                
-                Marca <select name="" id="slMarca">
-
-                    <option value="opTodos" selected>Todos</option>
-                    <option value="opMenorP">Menor Preço</option>
-                    <option value="opToddy">Toddy</option>
-                    <option value="opNescau">Nescau</option>
-                    <option value="opAltoAl">Alto Alegre</option>
-                    <option value="opZaeli">Zaeli</option>
-                    <option value="opTioJ">Tio João</option>
-                    <option value="opCocamar">Cocamar</option>
-                    <option value="opJandaia">Jandaia</option>
-                    <option value="opItamarity">Itamarity</option>
-                    <option value="opQuero">Quero</option>
-                    <option value="opElefante">Elefante</option>
-                    <option value="opPomarola">Pomarola</option>
-                    <option value="opPinduca">Pinduca</option>
-                    <option value="opSol">Sol</option>
-                    <option value="opAnaconda">Anaconda</option>
-                    <option value="opMartinelli">Martinelli</option>
-                    <option value="opDouro">De Ouro</option>
-                    <option value="opLider">Líder</option>
-                    <option value="opGalo">Galo</option>
-                    <option value="opRenata">Renata</option>
-                    <option value="opQualy">Qualy</option>
-                    <option value="opDoriana">Doriana</option>
-                    <option value="opDelicia">Delícia</option>
-                    <option value="opLiza">Liza</option>
-                    <option value="opPullman">Pullman</option>
-                    <option value="opCisne">Cisne</option>
-                    <option value="opCoqueiro">Coqueiro</option>
-                    <option value="opGomesdCosta">Gomes da Costa</option>
-                    <option value="opAmi">Ami</option>
-                    <option value="opCastelo">Castelo</option>
-                    <option value="opIntimus">Intimus</option>
-                    <option value="opSempre">Sempre Livre</option>
-                    <option value="opQboa">Qboa</option>
-                    <option value="opConfort">Confort</option>
-                    <option value="opCLose">Close-up</option>
-                    <option value="opSorriso">Sorriso</option>
-                    <option value="opColgate">Colgate</option>
-                    <option value="opPinho">Pinho-Sol</option>
-                    <option value="opYpe">Ypê</option>
-                    <option value="opLimpol">Limpol</option>
-                    <option value="opBombril">Bombril</option>
-                    <option value="opAssolan">Assolan</option>
-                    <option value="opOmo">Omo</option>
-                    <option value="opBrilhante">Brilhante</option>
-                    <option value="opFrancis">Francis</option>
-                    <option value="opLux">Lux</option>
-                    <option value="opDove">Dove</option>
-                    <option value="opPalmolive">Palmolive</option>
-                    <option value="opCrespa">Crespa</option>
-                    <option value="opImpor">Importado</option>
-                    <option value="opCatNan">Caturra/Nanica</option>
-                    <option value="opMona">Monalisa</option>
-                    <option value="opNacio">Nacional</option>
-                    <option value="opTaiti">Taiti</option>
-                    <option value="opJapo">Japonês</option>
-                    <option value="opBovino">Bovino</option>
-                    <option value="opSuina">Suina</option>
-                    <option value="opFrango">Frango</option>
-                    <option value="opFrimesa">Frimesa</option>
-                    <option value="opNula">Nula</option>
-                </select>
-                    Preço Min: <input type="number" class="minMax" id="inPreco1">Max: <input class="minMax" type="number"id="inPreco2">
-                <button id="btFiltrar">Filtrar</button>
-            </div>
+                        Marca<select id="slMarca">
+                            <option value="" disabled selected>Selecione uma Marca</option>
+                            <option value="-">Produto sem nenhuma marca</option>
+                            <option value="Nescau">Nescau</option>
+                            <option value="Toddy">Toddy</option>
+                            <option value="Menor Preço">Menor Preço</option>
+                            <option value="Alto Alegre">Alto Alegre</option>
+                            <option value="Zaeli">Zaeli</option>
+                            <option value="Tio João">Tio João</option>
+                            <option value="Cocamar">Cocamar</option>
+                            <option value="Jandaia">Jandaia</option>
+                            <option value="Itamaraty">Itamaraty</option>
+                            <option value="Quero">Quero</option>
+                            <option value="Elefante">Elefante</option>
+                            <option value="Pomarola">Pomarola</option>
+                            <option value="Pinduca">Pinduca</option>
+                            <option value="Sol">Sol</option>
+                            <option value="Anaconda">Anaconda</option>
+                            <option value="Martinelli">Martinelli</option>
+                            <option value="De Ouro">De Ouro</option>
+                            <option value="Líder">Líder</option>
+                            <option value="Galo">Galo</option>
+                            <option value="Renata">Renata</option>
+                            <option value="Qualy">Qualy</option>
+                            <option value="Doriana">Doriana</option>
+                            <option value="Delícia">Delícia</option>
+                            <option value="Liza">Liza</option>
+                            <option value="Pullman">Pullman</option>
+                            <option value="Cisne">Cisne</option>
+                            <option value="Coqueiro">Coqueiro</option>
+                            <option value="Gomes da Costa">Gomes da Costa</option>
+                            <option value="Ami">Ami</option>
+                            <option value="Castelo">Castelo</option>
+                            <option value="Intimus">Intimus</option>
+                            <option value="Sempre Livre">Sempre Livre</option>
+                            <option value="Qboa">Qboa</option>
+                            <option value="Confort">Confort</option>
+                            <option value="Close-up">Close-up</option>
+                            <option value="Sorriso">Sorriso</option>
+                            <option value="Colgate">Colgate</option>
+                            <option value="Pinho-Sol">Pinho-Sol</option>
+                            <option value="Ypê">Ypê</option>
+                            <option value="Limpol">Limpol</option>
+                            <option value="Bom Bril">Bom Bril</option>
+                            <option value="Assolan">Assolan</option>
+                            <option value="Alpes">Alpes</option>
+                            <option value="Omo">Omo</option>
+                            <option value="Brilhante">Brilhante</option>
+                            <option value="Francis">Francis</option>
+                            <option value="Lux">Lux</option>
+                            <option value="Dove">Dove</option>
+                            <option value="Palmolive">Palmolive</option>
+                            <option value="Crespa">Crespa</option>
+                            <option value="Importado">Importado</option>
+                            <option value="Caturra/nanica">Caturra/nanica</option>
+                            <option value="Monalisa">Monalisa</option>
+                            <option value="Nacional">Nacional</option>
+                        </select>
+                        Preço Min:<input type="number" class="minMax" id="inPreco1">Max:<input class="minMax"
+                            type="number" id="inPreco2">
+                        <button id="btFiltrar">Filtrar</button>
+                </div>
         </section>
         <section class="sctProdutosCss">
             <div class="boxProdutosCss" id="outProdutos"></div>
