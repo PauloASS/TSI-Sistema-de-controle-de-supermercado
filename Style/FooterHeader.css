@@ -78,6 +78,19 @@ header {
     transition: 0.3s;
 }
 
+.circleNumberCss{
+    display: none;
+    width: 20px;
+    height: 20px;
+    font-size: 100%;
+    border-radius: 50%;
+    margin-left: -5%;
+    margin-bottom: -3%;
+    background-color: white;
+    border: solid 1px rgb(0, 0, 0, 50%);
+    text-align: center;
+}
+
 /* Footer */
 
 footer {

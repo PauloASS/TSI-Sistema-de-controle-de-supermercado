@@ -18,8 +18,6 @@ main {
     box-shadow: 1px 1px 5px rgb(0, 0, 0, 20%);
 }
 
-/*div do banner*/
-
 /*Section produtos*/
 
 .sctProdutosCss{
@@ -30,7 +28,7 @@ main {
 /*div do filtro*/
 
 .boxFiltros {
-    background-color: white;
+    background-color: #eaeaea;
     width: 80%;
     padding: 10px;
     border: solid #808080 0.5px;
@@ -55,9 +53,7 @@ main {
     margin-bottom: 10px;
 }
 
-/*inputs e buttos da div filtros*/
-
-.boxFiltros input {
+.boxFiltros input { /*inputs e buttos da div filtros vvvvvvvvvvvvvvv*/
     border:solid gray 0.2px ;
     border-radius: 2px;
     width: 250px;

@@ -14,9 +14,11 @@ const btComprarJs = document.getElementById("btComprarJs");
 const outProdutos = document.getElementById("outProdutos");
 const outCarrinho = document.getElementById("outCarrinho");
 const outresultado = document.getElementById("outresultado");
-//Section de carrinho
+const outNumberCart = document.getElementById("outnumber");
+//Div's querySelector
 const sctCarrinhoCss = document.querySelector(".sctCarrinhoCss");
-const boxSombraCss = document.querySelector(".boxSombraCss")
+const boxSombraCss = document.querySelector(".boxSombraCss");
+const circleNumberCss = document.querySelector(".circleNumberCss");
 
 //Vetores
 var vetProduto = ['Achocolatado', 'Achocolatado', 'Achocolatado', 'Açúcar Cristal', 'Açúcar Cristal', 'Açúcar Refinado', 'Açúcar Refinado', 'Arroz Agulhinha Tipo 1', 'Arroz Agulhinha Tipo 1', 'Arroz Agulhinha Tipo 1', 'Café Torrado moído', 'Café Torrado moído', 'Café Torrado moído', 'Café Torrado moído', 'Ervilha em Conserva', 'Ervilha em Conserva', 'Extrato de Tomate', 'Extrato de Tomate (Molho de tomate)', 'Farinha de Mandioca', 'Farinha de Mandioca', 'Farinha de Trigo', 'Farinha de Trigo', 'Farinha de Trigo', 'Feijão Carioca', 'Feijão Carioca', 'Feijão Carioca', 'Feijão Preto', 'Feijão Preto', 'Feijão Preto', 'Leite Longa Vida Integral', 'Leite Longa Vida Integral', 'Leite Longa Vida Desnatado', 'Leite Longa Vida Desnatado', 'Macarrão Espaguete', 'Macarrão Espaguete', 'Macarrão Espaguete', 'Macarrão Parafuso', 'Macarrão Parafuso', 'Macarrão Parafuso', 'Margarina', 'Margarina', 'Margarina', 'Margarina', 'Milho Verde', 'Milho Verde', 'Óleo de Soja', 'Óleo de Soja', 'Óleo de Soja', 'Pão de Forma', 'Pão de Forma', 'Pão Francês', 'Sal Refinado', 'Sal Refinado', 'Sardinha em lata', 'Sardinha em lata', 'Sardinha em lata', 'Tempero Completo', 'Tempero Completo', 'Vinagre', 'Vinagre', 'Absorvente com aba', 'Absorvente com aba', 'Absorvente com aba', 'Absorvente sem aba', 'Absorvente sem aba', 'Absorvente sem aba', 'Água Sanitária', 'Água Sanitária', 'Amaciante', 'Amaciante', 'Creme Dental', 'Creme Dental', 'Creme Dental', 'Creme Dental', 'Desinfetante', 'Desinfetante', 'Detergente Líquido', 'Detergente Líquido', 'Detergente Líquido', 'Lã de Aço', 'Lã de Aço', 'Lã de Aço', 'Papel Higiênico Folha Dupla Rolo c/04 unidades', 'Papel Higiênico Folha Dupla Rolo c/ 12 unidades', 'Papel Higiênico Folha Dupla Rolo c/24 unidades', 'Papel Higiênico Folha Simples Rolo c/04 unidades', 'Papel Higiênico Folha Simples Rolo c/12 unidades', 'Papel Higiênico Folha Simples Rolo c/24 unidades', 'Sabão em barra', 'Sabão em barra', 'Sabão em barra', 'Sabão em Pó', 'Sabão em Pó', 'Sabão em Pó', 'Sabão em Pó', 'Sabonete', 'Sabonete', 'Sabonete', 'Sabonete', 'Sabonete', 'Alface', 'Alho', 'Banana', 'Batata', 'Cebola', 'Cenoura', 'Cebolinha Verde', 'Limão', 'Pepino', 'Salsinha', 'Tomate', 'Ovos Brancos', 'Acém', 'Bisteca Sem filé', 'Miolo de Paleta bife', 'Carne moída de 1º', 'Carne moída de 2º', 'Costela Ripa', 'Costelinha (sem pele)', 'Bisteca da copa', 'Frango inteiro resfriado', 'Linguiça Toscana', 'Paleta (com osso e com pele)', 'Pernil (com osso e com pele)'];
@@ -34,6 +36,7 @@ var vetCartProduto = [];
 var vetCartQuant = [];
 var resultTotal = 0;
 
+//Mostrar os produtos de primeira vez
 for (let cont = 0; cont < vetProduto.length; cont++) {
     if (vetEspecifica[cont] == '-') {
         outProdutos.innerHTML += `<div class="boxProduto">
@@ -57,18 +60,16 @@ for (let cont = 0; cont < vetProduto.length; cont++) {
     }
 }
 
-//chamando filtro com enter
-
+//chamando filtro com enter no campo input de pesquisa no header
 inProduto.addEventListener("keypress", verificaEnter);
 
-function verificaEnter (){
+function verificaEnter() {
     if (event.key === "Enter") {
         filtrar();
     }
 }
 
-//Filtro funcionando
-
+//Fuction de filtro
 btFiltrar.addEventListener("click", filtrar);
 
 function filtrar() {
@@ -149,8 +150,24 @@ function filtrar() {
     }
 }
 
-//fuctions do carrinho
-function addcart(pt) {
+//fuctions do carrinho buttons
+
+btComprarJs.addEventListener("click", comprar)
+
+function comprar() { /*Botão para comprar os protudos*/
+    if (vetCartProduto.length > 0) {
+        outCarrinho.innerHTML = "<h1>Compra realizada com sucesso</h1>";
+        vetCartProduto = [];
+        vetCartQuant = [];
+        numeroCompra()
+    }
+
+    resultTotal = 0;
+
+    outresultado.innerHTML = `<h1>Total</h1><br><h2>Preço total: R$ ${resultTotal.toFixed(2)}</h2>`;
+}
+
+function addcart(pt) { /*Fuction de adcionar carrinho*/
     let indAchado = -1;
     for (let ind = 0; ind < vetCartProduto.length; ind++) {
         if (vetCartProduto[ind] == pt) {
@@ -164,17 +181,17 @@ function addcart(pt) {
         vetCartQuant[indAchado] += 1;
     }
 
-    mostrarProcutosCart()
+    autalizarProdutos()
 }
 
-function removeCart(pt) {
+function removeCart(pt) { /*Fuction de remover carrinho, apenas visualizada no carrinhos*/
     vetCartProduto.splice(pt, 1)
     vetCartQuant.splice(pt, 1)
 
-    mostrarCarrinho()
+    autalizarProdutos()
 }
 
-function quantidadeCart(pt, num) {
+function quantidadeCart(pt, num) { /*Autaliza a quantidade de produtos, pelo carrinho*/
     if (num == -1) {
         if (vetCartQuant[pt] == 1) {
             vetCartProduto.splice(pt, 1)
@@ -186,11 +203,13 @@ function quantidadeCart(pt, num) {
         vetCartQuant[pt] = vetCartQuant[pt] + 1;
     }
 
-    mostrarCarrinho()
+    autalizarProdutos()
 }
 
-function mostrarProcutosCart() {
+function autalizarProdutos() { /*Fuction para Autalizar o carrinho*/
     outCarrinho.innerHTML = "";
+
+    numeroCompra() /*chamando para verificar se a quantidade de produtos está correta para ser mostrada*/
 
     if (vetCartProduto.length > 0) {
         for (let cont = 0; cont < vetCartProduto.length; cont++) {
@@ -230,20 +249,6 @@ function mostrarProcutosCart() {
     resultTotal = 0;
 }
 
-btComprarJs.addEventListener("click", comprar)
-
-function comprar() {
-    if (vetCartProduto.length > 0) {
-        outCarrinho.innerHTML = "<h1>Compra realizada com sucesso</h1>";
-        vetCartProduto = [];
-        vetCartQuant = [];
-    }
-
-    resultTotal = 0;
-
-    outresultado.innerHTML = `<h1>Total</h1><br><h2>Preço total: R$ ${resultTotal.toFixed(2)}</h2>`;
-}
-
 //mostrar o carrinho
 
 btCarrinhoJs.addEventListener("click", mostrarCarrinho);
@@ -252,11 +257,20 @@ function mostrarCarrinho() {
     sctCarrinhoCss.style.marginTop = '-4%';
     boxSombraCss.style.marginLeft = "0%";
 
-    mostrarProcutosCart()
+    autalizarProdutos()
 }
 
 btFecharCarrinho.addEventListener("click", fecharCarrinho)
 function fecharCarrinho() {
     sctCarrinhoCss.style.marginLeft = '100%';
     boxSombraCss.style.marginLeft = "100%";
+}
+
+function numeroCompra() {
+    if (vetCartProduto.length > 0) {
+        circleNumberCss.style.display = "block";
+        outNumberCart.innerHTML = `${vetCartProduto.length}`
+    } else {
+        circleNumberCss.style.display = "none";
+    }
 }
