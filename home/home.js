@@ -1,10 +1,15 @@
 //Entradas de dados
+//Entradas de dados
 const inProduto = document.getElementById("inProduto");
+const inPreco1 = document.getElementById("inPreco1");
+const inPreco2 = document.getElementById("inPreco2");
+//Campos de selencionar
 const inPreco1 = document.getElementById("inPreco1");
 const inPreco2 = document.getElementById("inPreco2");
 //Campos de selencionar
 const slCategorias = document.getElementById("slCategorias");
 const slMarca = document.getElementById("slMarca");
+//Botões
 //Botões
 const btFiltrar = document.getElementById("btFiltrar");
 const btCarrinhoJs = document.getElementById("btCarrinhoJs");
@@ -116,6 +121,7 @@ function filtrar() {
 
             for (let i = 0; i < vetFiltro.length; i++) {
                 var index = vetFiltro[i];
+                var index = vetFiltro[i];
                 if (vetEspecifica[index] === '-') {
                     outProdutos.innerHTML += `
                 <div class="boxProduto">
@@ -148,6 +154,123 @@ function filtrar() {
         slMarca.value = '';
     }
 }
+
+function addcart(pt) {
+    let indAchado = -1;
+    for(let ind=0; ind<vetCartProduto.length; ind++){
+        if(vetCartProduto[ind] == pt){
+            indAchado = ind;
+        }
+    }
+    if (indAchado == -1){
+        vetCartProduto.push(pt);
+        vetCartQuant.push(1);
+    } else {
+        vetCartQuant[indAchado] += 1;
+    }
+}
+
+function removeCart(pt){
+    console.log(`Produto ${vetProduto[pt]} removido do carrinho!`);
+}
+
+function quantidadeCart(pt){
+    console.log(`Produto ${vetProduto[pt]} foi autalizado na quantia ao carrinho!`);
+}
+
+btCarrinhoJs.addEventListener("click", mostrarCarrinho);
+function mostrarCarrinho() {
+    sctCarrinhoCss.style.marginLeft = '5%';
+    sctCarrinhoCss.style.marginTop = '2%';
+
+    if (vetCartProduto.length > 0) {
+        let index1 = vetCartProduto[i]; // index para o nome do produto
+        let index2 = vetCartQuant[i]; //Index para quantia
+        if (vetEspecifica[index1] === '-') {
+            outCarrinho.innerHTML += `
+        <div class="boxProduto">
+            <img src="/home/imagens/imgDefault.png">
+            <h3>${vetProduto[index1]}</h3><br>
+            <h3>${vetValor[index1]}</h3><br>
+            <button onclick="quantidadeCart(${index1})">Adicionar ao Carrinho</button>
+            <button onclick="removeCart(${index1})">Remover do Carrinho</button>
+        </div>`;
+        } else {
+            outCarrinho.innerHTML += `
+        <div class="boxProduto">
+            <img src="/home/imagens/imgDefault.png">
+            <h3>${vetProduto[index1]}</h3><br>
+            <h3>${vetValor[index1]}</h3><br>
+            <h3>Marca : ${vetEspecifica[index1]}</h3><br>
+            <button onclick="addCart(${index1})">Adicionar ao Carrinho</button>
+            <button onclick="removeCart(${index1})">Remover do Carrinho</button>
+        </div>`;
+        }
+    }
+}
+
+btFecharCarrinho.addEventListener("click", fecharCarrinho)
+function fecharCarrinho() {
+    sctCarrinhoCss.style.marginLeft = '100%';
+}
+
+const inPesquisa = document.getElementById("inPesquisa");
+
+inProduto.addEventListener("keypress", function(event) {
+	if (event.key == 'Enter') {
+    	buscarProduto();
+	}
+});
+
+function buscarProduto() {
+	const pesquisa = inProduto.value.toLowerCase();
+	const vetFiltro = [];
+
+	for (let i = 0; i < vetProduto.length; i++) {
+    	// Verifica se a pesquisa está contida em qualquer uma das descrições
+    	if (
+        	vetProduto[i].toLowerCase().includes(pesquisa) ||
+        	vetEspecifica[i].toLowerCase().includes(pesquisa)
+    	) {
+        	vetFiltro.push(i);
+    	}
+	}
+
+	exibirProdutos(vetFiltro);
+}
+
+// Função para exibir produtos filtrados
+function exibirProdutos(vetFiltro) {
+	outProdutos.innerHTML = ""; // Limpa a lista atual
+
+	if (vetFiltro.length == 0) {
+    	outProdutos.innerHTML = "Nenhum produto encontrado";
+    	return;
+	}
+
+	for (let i = 0; i < vetFiltro.length; i++) {
+    	const index = vetFiltro[i];
+    	if (vetEspecifica[index] == '-') {
+        	outProdutos.innerHTML += `
+        	<div class="boxProduto">
+            	<img src="/home/imagens/imgDefault.png">
+            	<h3>${vetProduto[index]}</h3><br>
+            	<h3>R$:${vetValor[index]}</h3><br>
+            	<button onclick="addcart(${index})">Adicionar ao carrinho</button>
+        	</div>`;
+    	} else {
+        	outProdutos.innerHTML += `
+        	<div class="boxProduto">
+            	<img src="/home/imagens/imgDefault.png">
+            	<h3>${vetProduto[index]}</h3><br>
+            	<h3>Marca: ${vetEspecifica[index]}</h3><br>
+            	<h3>R$:${vetValor[index]}</h3>
+            	<button onclick="addcart(${index})">Adicionar ao carrinho</button>
+        	</div>`;
+    	}
+	}
+}
+
 
 //fuctions do carrinho
 function addcart(pt) {
