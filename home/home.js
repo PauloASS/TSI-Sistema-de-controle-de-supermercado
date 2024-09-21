@@ -4,9 +4,6 @@ const inProduto = document.getElementById("inProduto");
 const inPreco1 = document.getElementById("inPreco1");
 const inPreco2 = document.getElementById("inPreco2");
 //Campos de selencionar
-const inPreco1 = document.getElementById("inPreco1");
-const inPreco2 = document.getElementById("inPreco2");
-//Campos de selencionar
 const slCategorias = document.getElementById("slCategorias");
 const slMarca = document.getElementById("slMarca");
 //Botões
