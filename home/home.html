@@ -19,14 +19,20 @@
                 <h1>Supermercado Capixabão</h1>
             </a>
             <input type="text" id="inProduto" placeholder="O que você procura?">
-            <button class="cartCss" id="btCarrinhoJs"><img src="/home/imagens/carrinhoIcon.png"></button>
+            <p><button class="cartCss" id="btCarrinhoJs"><img src="/home/imagens/carrinhoIcon.png"></button>
+            <div class="circleNumberCss"><h2 id="outnumber"></h2></div></p>
         </div>
     </header>
-    <section class="sctCarrinhoCss">
-        <button id="btFecharCarrinho">Fechar</button>
-        <div id="outCarrinho"></div>
-    </section>
     <main>
+        <div class="boxSombraCss"></div>
+    <section class="sctCarrinhoCss">
+        <button id="btFecharCarrinho" class="btFecharCartCss">Fechar</button>
+        <div class="boxCompra">
+            <h4 id="outresultado"></h4>
+        </div>
+        <button class="btComprarCss" id="btComprarJs">Comprar</button>
+        <div id="outCarrinho" class="divProdutosCartCss"></div>
+    </section>
         <section class="sctBannerCss">
             <img src="/home/imagens/banner.png" class="bannerCss">
         </section>
