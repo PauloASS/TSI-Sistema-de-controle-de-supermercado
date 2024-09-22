@@ -7,7 +7,6 @@ const inPreco2 = document.getElementById("inPreco2");
 const slCategorias = document.getElementById("slCategorias");
 const slMarca = document.getElementById("slMarca");
 //Botões
-//Botões
 const btFiltrar = document.getElementById("btFiltrar");
 const btCarrinhoJs = document.getElementById("btCarrinhoJs");
 const btFecharCarrinho = document.getElementById("btFecharCarrinho");
@@ -56,16 +55,6 @@ for (let cont = 0; cont < vetProduto.length; cont++) {
                     </div>
                     <button onclick="addcart(${cont})">Adicionar ao carrinho</button>
             </div>`;
-    }
-}
-
-//chamando filtro com enter
-
-inProduto.addEventListener("keypress", verificaEnter);
-
-function verificaEnter (){
-    if (event.key === "Enter") {
-        filtrar();
     }
 }
 
@@ -152,67 +141,9 @@ function filtrar() {
     }
 }
 
-function addcart(pt) {
-    let indAchado = -1;
-    for(let ind=0; ind<vetCartProduto.length; ind++){
-        if(vetCartProduto[ind] == pt){
-            indAchado = ind;
-        }
-    }
-    if (indAchado == -1){
-        vetCartProduto.push(pt);
-        vetCartQuant.push(1);
-    } else {
-        vetCartQuant[indAchado] += 1;
-    }
-}
-
-function removeCart(pt){
-    console.log(`Produto ${vetProduto[pt]} removido do carrinho!`);
-}
-
-function quantidadeCart(pt){
-    console.log(`Produto ${vetProduto[pt]} foi autalizado na quantia ao carrinho!`);
-}
-
-btCarrinhoJs.addEventListener("click", mostrarCarrinho);
-function mostrarCarrinho() {
-    sctCarrinhoCss.style.marginLeft = '5%';
-    sctCarrinhoCss.style.marginTop = '2%';
-
-    if (vetCartProduto.length > 0) {
-        let index1 = vetCartProduto[i]; // index para o nome do produto
-        let index2 = vetCartQuant[i]; //Index para quantia
-        if (vetEspecifica[index1] === '-') {
-            outCarrinho.innerHTML += `
-        <div class="boxProduto">
-            <img src="/home/imagens/imgDefault.png">
-            <h3>${vetProduto[index1]}</h3><br>
-            <h3>${vetValor[index1]}</h3><br>
-            <button onclick="quantidadeCart(${index1})">Adicionar ao Carrinho</button>
-            <button onclick="removeCart(${index1})">Remover do Carrinho</button>
-        </div>`;
-        } else {
-            outCarrinho.innerHTML += `
-        <div class="boxProduto">
-            <img src="/home/imagens/imgDefault.png">
-            <h3>${vetProduto[index1]}</h3><br>
-            <h3>${vetValor[index1]}</h3><br>
-            <h3>Marca : ${vetEspecifica[index1]}</h3><br>
-            <button onclick="addCart(${index1})">Adicionar ao Carrinho</button>
-            <button onclick="removeCart(${index1})">Remover do Carrinho</button>
-        </div>`;
-        }
-    }
-}
-
-btFecharCarrinho.addEventListener("click", fecharCarrinho)
-function fecharCarrinho() {
-    sctCarrinhoCss.style.marginLeft = '100%';
-}
-
 const inPesquisa = document.getElementById("inPesquisa");
 
+//chamando filtro com enter
 inProduto.addEventListener("keypress", function(event) {
 	if (event.key == 'Enter') {
     	buscarProduto();
